@@ -1,0 +1,718 @@
+/* Importem la font Montserrat de Google Fonts amb els pesos necessaris */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap');
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  margin-top: 60px;
+  line-height: 1.6;
+}
+
+/* Barra de navegació */
+header {
+  background-color: #1F1B40;
+  position: fixed;  /* Sempre fixa a dalt */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 0;
+  padding: 0.75rem 1rem;
+}
+
+.logo {
+   width: 120px;
+   margin-right: auto;
+   margin-left: 1rem;
+}
+
+/* Links de navegació */
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  margin-left: auto;
+  padding-right: 2rem;
+}
+
+.nav-links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+}
+
+.nav-links a:hover {
+  background-color: #081b30; /* Blau més fosc en hover */
+}
+
+/* Botó de menú (només visible en mòbil) */
+.nav-toggle {
+  display: none;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  margin-right: 2rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-links {
+    /* Estat inicial amagat */
+    flex-direction: column;
+    position: absolute;
+    top: 100%; /* Just sota la barra */
+    right: 0;
+    background-color: #0a2540;
+    width: 200px;
+    overflow: hidden;
+
+    /* Animació */
+    max-height: 0;
+    transition: max-height 0.3s ease-in-out;
+  }
+
+  .nav-links a {
+    padding: 0.75rem 1rem;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  /* Estat obert */
+  .nav-links.active {
+    max-height: 500px; /* suficient per contenir tots els enllaços */
+  }
+}
+
+/* BANNER */
+.banner {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+/* Text centrat al banner */
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.logo-banner {
+  width: 400px;   
+  max-width: 100%;
+  height: auto;
+}
+@media (max-width: 768px) {
+  .logo-banner {
+    width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-banner {
+    width: 200px;
+  }
+}
+
+
+/* SECCIÓ TFG INTRO */
+.tfg-intro {
+  padding: 5rem 1rem;
+  background-color: #ffffff; /* blanc net per contrastar */
+  color: #1F1B40;
+}
+
+.tfg-intro .container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Títol */
+.tfg-intro h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 2.5rem;
+  margin-bottom: 0rem;
+  text-align: center; /* centrat perquè destaqui */
+  color: #1F1B40;
+  position: relative;
+}
+
+.tfg-intro h4 {
+text-align: center;
+margin-top: 0rem;
+margin-bottom: 2rem;
+}
+/* Línia decorativa sota el títol */
+.tfg-intro h4::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: #FCEA10;
+  margin: 0.75rem auto 0;
+  border-radius: 2px;
+}
+
+/* Paràgrafs */
+.tfg-intro p {
+  font-size: 1.125rem;
+  line-height: 1.9;
+  margin-bottom: 1.5rem;
+  text-align: justify;
+}
+
+/* Destaquem el text en negreta amb un color diferent */
+.tfg-intro strong {
+  color: #1F1B40; /* blau suau que contrasta amb el groc */
+  font-weight: 700;
+}
+
+
+/* SECCIÓ INTRO */
+.intro {
+  padding: 5rem 1rem;
+  background-color: #fffec2;
+  color: #1F1B40;
+ 
+}
+
+.intro .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.intro h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.intro p {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+  text-align: justify;
+}
+
+/* Flexbox per a text + imatge */
+.intro-flex {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.intro-text {
+  flex: 1.2; /* més espai pel text */
+}
+
+.intro-image {
+  flex: 0.7;
+  text-align: right;
+}
+
+.intro-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px; /* opcional, per fer-ho més suau */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* opcional */
+}
+
+/* Responsive: imatge sota text en pantalles petites */
+@media (max-width: 768px) {
+  .intro-flex {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .intro-image {
+    text-align: center;
+    margin-top: 1.5rem;
+  }
+}
+
+
+/* Contenidor de l’animació */
+.animacio-espai {
+  position: relative;
+  height: 120px;
+  background: linear-gradient(to bottom, #fffec2, #fffec2);
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Coet + rastre */
+.coet {
+  position: absolute;
+  top: 50%;
+  left: -150px; /* comença fora */
+  display: flex;
+  align-items: center;
+  transform: translateY(-50%);
+  opacity: 0; /* comença invisible */
+  animation: volar 10s linear infinite;
+  animation-delay: 0s; /* surt immediatament */
+}
+
+/* Imatge del coet */
+.coet img {
+  width: 80px;
+  transform: rotate(0deg);
+  filter: drop-shadow(-10px 0 6px rgba(255,255,255,0.8));
+  z-index: 2;
+}
+
+/* Rastre */
+.rastre {
+  width: 150px;
+  height: 20px;
+  margin-left: -40px; /* enganxat darrere del coet */
+  background: linear-gradient(90deg, rgba(144, 211, 248, 0.9), transparent);
+  border-radius: 50px;
+  animation: rastre 1s infinite;
+  z-index: 1;
+}
+
+/* Animació de vol */
+@keyframes volar {
+  0% { left: -200px; opacity: 0; }
+  5% { opacity: 1; }
+  50% { left: 100%; opacity: 1; }
+  55% { opacity: 0; }
+  100% { left: 100%; opacity: 0; }
+}
+
+/* Brillantor del rastre */
+@keyframes rastre {
+  0% { opacity: 0.9; width: 140px; }
+  50% { opacity: 0.5; width: 180px; }
+  100% { opacity: 0.9; width: 140px; }
+}
+
+/* Contenidor de l’animació inversa */
+.animacio-espai.inversa {
+  position: relative;
+  height: 120px;
+  background: linear-gradient(to bottom, #ffffff, #fffec2); /* de TFG cap a Dislaxia */
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Coet invers */
+.coet.invers {
+  left: 100%; /* comença fora a la dreta */
+  flex-direction: row-reverse;
+  opacity: 0; /* comença invisible */
+  animation: volar-invers 10s linear infinite;
+  animation-delay: 5s; /* surt quan el primer ha desaparegut */
+}
+
+.coet.invers img {
+  transform: rotate(180deg); /* gira el coet cap a l’esquerra */
+  filter: drop-shadow(10px 0 6px rgba(255,255,255,0.8));
+}
+
+/* Animació contrària */
+@keyframes volar-invers {
+  0% { left: 100%; opacity: 0; }
+  5% { opacity: 1; }
+  50% { left: -200px; opacity: 1; }
+  55% { opacity: 0; }
+  100% { left: -200px; opacity: 0; }
+}
+
+/* Rastre invers (coet dreta → esquerra) */
+.coet.invers .rastre {
+  margin-left: 0;       /* eliminem marge esquerra */
+  margin-right: -40px;  /* rastre enganxat al darrere */
+  background: linear-gradient(270deg, rgba(144, 211, 248, 0.9), transparent);
+}
+
+
+/* SECCIÓ OBJECTIUS */
+.objectius {
+  padding: 5rem 1rem;
+  background-color: #fffec2;
+  color: #1F1B40;
+}
+
+.objectius .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Layout amb Flexbox */
+.objectius-flex {
+  display: flex;
+  align-items: flex-start; /* alineem text i imatge dalt */
+  gap: 2rem;
+}
+
+.objectius-image {
+  flex: 1.5; /* menys espai que el text */
+}
+
+.objectius-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px; /* opcional */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* opcional */
+}
+
+.objectius-text {
+  flex: 2; /* més espai per a la llista */
+}
+
+.objectius h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-align: left; /* ara queda alineat amb la llista */
+}
+
+.objectius ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.objectius li {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+  position: relative;
+  padding-left: 1.5rem;
+  text-align: left; /* ben alineat */
+}
+
+/* Punt decoratiu abans de cada element */
+.objectius li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #1F1B40;
+  font-weight: bold;
+}
+
+/* Responsive: imatge sota text */
+@media (max-width: 768px) {
+  .objectius-flex {
+    flex-direction: column;
+  }
+
+  .objectius-image,
+  .objectius-text {
+    text-align: center;
+  }
+
+  .objectius li {
+    text-align: justify;
+  }
+}
+
+/* ---------- SECCIÓ DISLÈXIA ---------- */
+body.dislexia-page {
+  background-color: #fffec2; /* groc clar */
+}
+
+.main-title{
+  font-size: 3rem;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  color:#1F1B40;
+}
+.intro-dislexia {
+  padding: 2rem 2rem 1rem 2rem;
+}
+
+.dislexia-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  color:#1F1B40;
+  align-items: start;
+}
+
+.dislexia-general,
+.dislexia-nens {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: justify;
+  height: 80%;
+  justify-content: flex-start;
+}
+
+.dislexia-general:hover,
+.dislexia-nens:hover {
+  transform: translateY(-5px);
+}
+
+/* ---------- SECCIÓ BENEFICIS ---------- */
+.beneficis {
+  padding: 0rem 2rem 4rem 2rem;
+  color:#1F1B40;
+}
+
+.beneficis-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.beneficis .card {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: justify;
+}
+
+.beneficis .card:hover {
+  transform: translateY(-5px);
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 768px) {
+  .dislexia-grid,
+  .beneficis-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== ESTILS PÀGINA INSTRUCCIONS ===== */
+.instruccions-page {
+  background-color: #fffec2; /* mateix groc clar que la pàgina dislèxia */
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.6;
+  color: #1F1B40;
+  padding-top: 80px; /* separació de la navbar */
+}
+
+/* Títol principal */
+.instruccions-page h1 {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 40px;
+  font-weight: 900;
+  color: #1F1B40;
+}
+
+/* Contenidor general */
+.instruccions-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Seccions */
+.instruccions-section {
+  background: #ffffff;
+  padding: 25px 30px;
+  margin-bottom: 30px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+}
+
+.instruccions-section:hover {
+  transform: translateY(-5px);
+}
+
+/* Títols secció */
+.instruccions-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  font-weight: 700;
+  color: #1F1B40;
+  border-left: 6px solid #FCEA10; /* groc accent coherent */
+  padding-left: 10px;
+}
+
+/* Subtítols */
+.instruccions-section h3 {
+  font-size: 1.3rem;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: #1F1B40;
+}
+
+/* Llistes */
+.instruccions-section ul {
+  margin-left: 20px;
+  padding-left: 15px;
+  list-style: disc;
+}
+
+.instruccions-section li {
+  margin-bottom: 8px;
+  font-size: 1.125rem;
+  line-height: 1.8;
+  text-align: justify;
+}
+
+/* Cards per tipus de caselles o reptes */
+.instruccions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 15px;
+}
+
+.instruccions-card {
+  background: #fff;
+  border: 2px solid #FCEA10;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #1F1B40;
+  transition: 0.2s ease;
+}
+
+.instruccions-card:hover {
+  background: #f9f9fb;
+}
+
+.final-msg{
+  text-align: center;
+  font-weight: 600;
+  font-style: italic;
+  font-size: 1.5rem;
+}
+
+/* ========================= */
+/* PÀGINA REPOSITORI */
+/* ========================= */
+
+.repositori-page {
+  background-color: #f9f9fb; /* coherent amb la intro */
+  color: #1F1B40;
+}
+
+.repositori-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 5rem 1rem;
+  text-align: center;
+}
+
+.repositori-container h1.main-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #1F1B40;
+  position: relative;
+}
+
+/* Línia decorativa sota el títol */
+.repositori-container h1.main-title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: #FCEA10;
+  margin: 0.75rem auto 0;
+  border-radius: 2px;
+}
+
+.repositori-container p {
+  font-size: 1.2rem;
+  line-height: 1.9;
+  margin-bottom: 2.5rem;
+  text-align: center;
+  color: #333;
+}
+
+/* Botó d'accés */
+.repositori-container .btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background-color: #1F1B40; /* blau suau (mateix que destacats del text) */
+  color: #fff;
+  font-size: 1.125rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.15);
+}
+
+.repositori-container .btn:hover {
+  background-color: #FCEA10;
+  transform: translateY(-3px);
+  box-shadow: 0px 6px 14px rgba(0,0,0,0.2);
+}
+
+
+
+/*FOOTER*/
+.footer {
+  background-color: #1F1B40; /* mateix to que el header */
+  color: #ffffff;
+  padding: 2rem 1rem;
+  text-align: center;
+  position: relative;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-logo {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900; /* Montserrat Grueso */
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.footer-links {
+  margin-bottom: 1rem;
+}
+
+.footer-links a {
+  color: #ffffff;
+  margin: 0 0.75rem;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #f0ffb9; /* groc suau com a accent */
+}
+
+.footer-copy {
+  font-size: 0.875rem;
+  opacity: 0.8;
+}
