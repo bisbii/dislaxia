@@ -6,6 +6,7 @@ body {
   margin: 0;
   margin-top: 60px;
   line-height: 1.6;
+  flex: 1;
 }
 
 /* Barra de navegació */
