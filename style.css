@@ -681,7 +681,6 @@ body.dislexia-page {
   color: #ffffff;
   padding: 2rem 1rem;
   text-align: center;
-  position: relative;
   min-height: 200px;
 }
 /* Versió que força a ocupar tota la pantalla si no hi ha prou contingut */
