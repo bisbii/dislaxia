@@ -6,7 +6,6 @@ body {
   margin: 0;
   margin-top: 60px;
   line-height: 1.6;
-  flex: 1;
 }
 
 /* Barra de navegació */
@@ -683,8 +682,18 @@ body.dislexia-page {
   padding: 2rem 1rem;
   text-align: center;
   position: relative;
+  min-height: 200px;
+}
+/* Versió que força a ocupar tota la pantalla si no hi ha prou contingut */
+body:has(.footer) {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
+body:has(.footer) .footer {
+  margin-top: auto; /* empeny el footer cap avall */
+}
 .footer-container {
   max-width: 1200px;
   margin: 0 auto;
